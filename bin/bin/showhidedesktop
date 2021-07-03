@@ -1,0 +1,10 @@
+#!/bin/bash
+
+current_status=`gconftool-2 --get /apps/nautilus/preferences/show_desktop`
+
+if $current_status; then
+	gconftool-2 --type boolean --set /apps/nautilus/preferences/show_desktop false;
+else
+	gconftool-2 --type boolean --set /apps/nautilus/preferences/show_desktop true;
+fi;
+

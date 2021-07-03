@@ -1,0 +1,4 @@
+#!/bin/bash
+BLOCKLIST_DIR=/home/esp/.config/transmission/blocklists
+wget -q -O- http://www.bluetack.co.uk/config/level{1,2,3}.gz | gunzip -c > ${BLOCKLIST_DIR}/level123
+

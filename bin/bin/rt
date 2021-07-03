@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+
+tty -s;
+if [ "0" == "$?" ]; then
+echo "Terminal attached, you can print data as there might be a user viewing it.";
+else
+kitty
+fi

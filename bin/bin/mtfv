@@ -1,0 +1,6 @@
+#!/bin/bash
+
+for f in *
+do
+ ffmpeg -i "$f" -t 2 -ss 6 -r 0.5 ./img/"$f".jpg
+done

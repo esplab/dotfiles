@@ -1,0 +1,9 @@
+#!/bin/bash
+
+for file in "$@"
+do
+	kdialog --title "Subtitle Extractor (cc)" --passivepopup "Extracting Subtitles from $file." 15
+	/usr/bin/ccextractor "$file"
+done
+
+kdialog --title "Subtitle Extractor (cc)" --passivepopup "All Jobs Done." 15

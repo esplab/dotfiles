@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]
+then
+        exit 1
+fi
+
+for file in "$@"
+do
+	if [ -f "${file}" ]; then
+		/usr/bin/7z e "${file}" -aoa
+		b=$(basename "${file}")
+		notify-send "Finished Extracting:<br>${b}" --icon=dialog-information --app-name="Extract with 7z"
+	fi
+
+done

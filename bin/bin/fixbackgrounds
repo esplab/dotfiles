@@ -1,0 +1,24 @@
+#!/bin/bash
+
+src=/home/esp/Pictures/background.png 
+
+# sudo cp $src /usr/share/plasma/look-and-feel/org.kde.breeze.desktop/contents/components/artwork/
+sudo cp $src /usr/share/plasma/look-and-feel/org.kde.breeze.desktop/contents/splash/images/
+sudo cp $src /boot/grub/themes/deepin/
+
+echo "add:"
+echo
+echo "   Image {"
+echo "        id: background"
+echo "        anchors.fill: parent"
+echo "        source: \"images/background.png\""
+echo "    }"
+echo
+echo "to:"
+echo "/usr/share/plasma/look-and-feel/org.kde.breeze.desktop/contents/splash/Splash.qml"
+echo
+echo "after:" 
+echo
+echo "onStageChanged: {"
+echo "..."
+echo "}"

@@ -1,0 +1,3 @@
+#/bin/bash
+
+sudo sed -i 's/echo/#ech~o/g' /boot/grub/grub.cfg

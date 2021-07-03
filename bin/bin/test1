@@ -1,0 +1,7 @@
+#!/bin/bash
+
+szAnswer=$(zenity --entry --text "Please enter a new domain name?" --entry-text ""); 
+echo $szAnswer
+
+ans=$(zenity  --list  --text "Select site type for $szAnswer:" --radiolist  --column "" --column "Site Type" TRUE Default FALSE Stylos FALSE "CakePHP");
+ echo $ans

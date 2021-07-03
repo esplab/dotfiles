@@ -1,0 +1,62 @@
+#!/usr/bin/php
+<?php
+$undo = "#!/bin/bash\n\n";
+$dir = '.';
+$files = scandir($dir);
+$ren = array();
+
+$words = [  
+            'LOL', 'Lol', 'lol', 'HDTV', 'Hdtv', 'hdtv', 'x264', 'X264', '720p', '480p', 'EVOLVE', 
+            'ASAP', 'AFG', 'Afg', 'WEB-DL', 'mSD', 'By CCTeam2011', 'AGF', 'Agf', '™',
+            'DIMENSION', '2HD', '2hd', '[VTV]', 'iNT', 'DVDRip', 'XviD', 'LOCK', 'Sm', 'River',
+            'Ws', 'Xvid', 'Err0001', 'Brrip', 'Bdrip', 'Psig', '2011', '2012', '2013', '[vtv]',
+            'Fov', 'Tla', 'Asap', 'Rus', 'Eng', 'Novafilm', 'Tv', 'Gr', 'Dvdrip', 'Topaz'
+
+        ];
+
+
+echo "Subname v0.58 (c) 2013 by Spathopoulos Elias\n\n";
+
+foreach ($files as $file) {
+    if (!is_dir($file) && $file !=='undo.sh') {
+        $ext = pathinfo($file, PATHINFO_EXTENSION);
+        
+        $f = str_replace('.' . $ext, '', $file);
+        $f = str_replace('.', ' ', $f);
+        $f = str_replace('_', ' ', $f);
+        $f = str_replace('-', ' ', $f);
+
+        $f = ucwords(strtolower($f));
+
+        foreach ($words as $word) {
+            $f = str_replace($word, '', $f);
+        }
+
+        $foo = preg_replace('/\s+/', ' ', $f);
+        $foo = preg_replace('/ ?([0-9]+)[Xx]([0-9]+)/', ' $1x$2 -', $foo);
+        $foo = preg_replace('/[Ss]0?([0-9]+)[Ee]([0-9]+)/', '$1x$2 -', $foo);
+
+        $foo = rtrim($foo, ' -');
+
+        $newFilename = $foo . '.' . $ext;
+
+        if ($newFilename !== $file) {
+            $undo .= 'mv "' . $newFilename . '" "' . $file . '"'."\n";
+            $ren[] = array('old' => $file, 'new' => $newFilename);
+        }
+    }
+}
+
+foreach ($ren as $key => $value) {
+    echo $value['old'] ." => ". $value['new'] . "\n";
+}
+
+$line = readline("Proceed with rename [y/N]: ");
+
+if ($line==='y') {
+	file_put_contents("undo.sh", $undo);
+	
+	foreach ($ren as $key => $value) {
+		rename($value['old'], $value['new']);
+	}
+}

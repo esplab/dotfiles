@@ -1,0 +1,34 @@
+#!/bin/bash
+echo "newsite v0.4"
+
+if [ -z "$1" ]                
+then
+    echo "Syntax: newsite sitename [site type]"
+    echo "Site types: simple, stylos, cakephp"
+    echo "Error: No command-line arguments."
+  
+else
+    mkdir -p /var/www/sites/$1/{htdocs,logs}
+    cd /etc/apache2/sites-available
+    sed -e "s/{SITE}/$1/g" template.conf > $1.conf
+    sudo a2ensite $1.conf
+    sudo /etc/init.d/apache2 restart
+    echo  "127.0.0.1 $1" | sudo tee -a /etc/hosts >/dev/null
+fi
+
+case $2 in
+    cakephp)
+        echo "Creating new CakePHP site."
+        cp -R /usr/share/newsite/payloads/cakephp/* /var/www/sites/$1/htdocs/    
+        cp -R /usr/share/newsite/payloads/cakephp/.htaccess /var/www/sites/$1/htdocs/
+        sudo chmod -R 777 /var/www/sites/$1/htdocs/app/tmp/
+        ;;
+    stylos)
+        echo "Creating new Stylos site."
+        ;;
+    * )
+        echo "Createng new simple site."
+        cp -R /usr/share/newsite/payloads/simple/* /var/www/sites/$1/htdocs/
+        
+        ;;
+esac      

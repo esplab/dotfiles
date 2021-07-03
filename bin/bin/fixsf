@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+sudo ln -s ./bin/console console
+sudo ln -s ./public httpdocs

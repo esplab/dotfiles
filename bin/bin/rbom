@@ -1,0 +1,17 @@
+#!/usr/bin/php
+<?php
+function rmBOM($string) { 
+    if(substr($string, 0,3) == pack("CCC",0xef,0xbb,0xbf)) { 
+        $string=substr($string, 3); 
+    } 
+    return $string; 
+}
+
+$files = glob("*");
+foreach ($files as $filename) {
+$string = file_get_contents($filename);
+$string = rmBOM($string);
+file_put_contents($filename, $string);
+}
+
+?>

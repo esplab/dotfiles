@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+#DATEA=$(date +"%Y%m%d" --date "1 day ago")
+
+DATEA=20140624
+FILESA=~/www/bw/data/2Terra/WRF-3DSA/*.txt
+PATHA=2Terra
+#echo $DATE
+
+#rm -rf -- $PATHA
+#rm ./all.data
+
+#wget http://www.weatherbox.gr/wb/mdata/wrf_3dsa_$DATEA.tar.gz
+
+#tar zxvf wrf_3dsa_$DATEA.tar.gz
+
+for f in $FILESA
+do
+  echo "Processing $f file..."
+  sed -i 1d $f
+  cat $f >>all.data
+done
+
+pwd

@@ -1,0 +1,4 @@
+#/usr/bin/env bash
+
+sudo ip link set enp4s0 down
+sudo ip link set enp4s0 up

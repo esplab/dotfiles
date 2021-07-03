@@ -1,0 +1,33 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]
+then
+        exit 1
+fi
+
+for file in "$@"
+do
+
+	en=$(uchardet "${file}") 
+
+	if [ -f "${file}" ]; then
+		iconv -f "$en" -t UTF-8 "${file}" > "${file}"~
+	fi
+ 
+	if [ -f "${file}"~ ]; then
+		# mv "$var.tmp" "$var"
+		sed -e "s/\xc2\x85/.../g" -e "s/?/;/g" -e 's/{\\pos([0-9]*,[0-9]*)}//g' -e "s//'/g" -e "s//'/g" -e 's//"/g' -e 's//"/g' "${file}"~ > "${file}"	
+		rm "${file}"~
+
+		TYPE=`file - < "${file}" | cut -d: -f2`
+		if echo "$TYPE" | grep -q '(with BOM)'
+		then
+			exit 1
+	 	else
+		    ( mv "${file}" "${file}"~ && uconv -f utf-8 -t utf-8 --add-signature < "${file}~" > "${file}" ) || ( exit 1 )
+		    rm "${file}"~
+		    
+		fi
+	fi
+	
+done

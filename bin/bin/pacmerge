@@ -1,0 +1,30 @@
+#!/bin/bash
+
+echo
+echo "Pacmerge 1.0"
+echo "running updatedb..."
+sudo updatedb
+
+x=$(locate --existing --regex "\.pac(new|save)$" | fzf)
+y=${x%.*}
+
+if [ -z "$x" ]; then
+	echo "No files selected to merge!";
+	echo
+	exit;
+fi
+
+if [ -e "$y" ]; then 
+	sudo meld $x $y &> /dev/null;
+else
+	echo "File $y does not exist!";
+	echo
+	exit;
+fi
+
+read -p "Delete file $x (y/N)? " -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+    sudo rm $x
+    echo "File $x deleted."
+fi

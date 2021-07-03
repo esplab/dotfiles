@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+dig -t txt "_acme-challenge.$1" +short

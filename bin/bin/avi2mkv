@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#sourcedir="/Volumes/WD External/Inetpub/ftproot/Registered Users/Movies"
+#destdir="/Volumes/USB Backup/Video Converter"
+#cd "$sourcedir"
+#for i in *.avi; do
+#  ./HandBrakeCLI -i "$i" -o "$destdir/${i%.*}.mp4" --preset="AppleTV"
+#done
+
+#http://flowplayer.org/forum/7/12671
+#ffmpeg -y -i input.mov -acodec libfaac -ar 44100 -ab 96k -vcodec libx264 -level 41 -crf 20 -bufsize 20000k -maxrate 25000k -g 250 -r 20 -s 1280x544 -coder 1 -flags +loop -cmp +chroma -partitions +parti4x4+partp8x8+partb8x8 -flags2 +brdo+dct8x8+bpyramid -me umh -subq 7 -me_range 16 -keyint_min 25 -sc_threshold 40 -i_qfactor 0.71 -rc_eq 'blurCplx^(1-qComp)' -bf 16 -b_strategy 1 -bidir_refine 1 -refs 6 -deblockalpha 0 -deblockbeta 0 output.mp4
+#I had to remove +brdo from -flags2 and change -me to -me_method to get this to work with the latest ffmpeg... subq 7 activates B-Frames
+#
+
+
+for i in *.avi; do
+#     ffmpeg -i "$i" -acodec libfaac -ab 128k -ac 2 -vcodec libx264 -vpre lossless_fast -crf 26 -threads 0 "${i%.*}.mkv"
+     time ffmpeg -i "$i" -acodec aac -ab 96k -vcodec libx264 -vpre lossless_slow -crf 26 -threads 0 "${i%.*}.mkv"
+     #rm "${i%.*}.avi"
+done

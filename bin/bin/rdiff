@@ -1,0 +1,3 @@
+#!/bin/bash
+
+colordiff -y --suppress-common-lines $1 <(ssh esp@192.168.1.20 "cat $(pwd)\/$1") |less
