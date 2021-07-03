@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/home/esp'
+let g:netrw_dirhist_1='/srv/http/cci'
+let g:netrw_dirhist_0='/srv/http/cci/routes'
+let g:netrw_dirhist_9='/srv/http/cci'
+let g:netrw_dirhist_8='/home/esp/.config/nvim'
+let g:netrw_dirhist_7='/srv/http/cci/documentation'
+let g:netrw_dirhist_6='/home/esp'
+let g:netrw_dirhist_5='/home'
+let g:netrw_dirhist_4='/'
+let g:netrw_dirhist_3='/srv'
