@@ -2,3 +2,5 @@
 nvim/.config/nvim/plugged/
 
 nvim/.local/share/nvim/shada/main.shada
+ranger/.config/ranger/plugins/__pycache__/
+ranger/.config/ranger/__pycache__/
