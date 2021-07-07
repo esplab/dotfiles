@@ -8,7 +8,7 @@ set encoding=UTF-8
 let &fcs='eob: '
 
 call plug#begin(stdpath('config') . '/plugged')
-Plug 'arcticicestudio/nord-vim'
+"Plug 'arcticicestudio/nord-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'mhinz/vim-startify'
 "Plug 'neoclide/coc.nvim'
@@ -22,7 +22,10 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 "Plug 'kyazdani42/nvim-tree.lua'
 "Plug 'romgrk/barbar.nvim'
-"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+"" If you are using Vim-Plug
+Plug 'shaunsingh/nord.nvim'
+
 call plug#end()
 
 colorscheme nord
