@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+
+
+sudo echo 'Q' | openssl s_client -connect "$1":465 -servername "$1" -showcerts 

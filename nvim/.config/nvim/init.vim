@@ -25,7 +25,6 @@ Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 "" If you are using Vim-Plug
 Plug 'shaunsingh/nord.nvim'
-
 call plug#end()
 
 colorscheme nord
