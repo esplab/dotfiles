@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+#sed "s/   grml_prompt_addto PS1 \"\${left_items\[@\]}\"/\#    grml_prompt_addto PS1 \"\${left_items\[@\]}\"/g" "$1"
+
+sudo sed -i '/grml_prompt_addto PS1/ s/^/#/' /etc/zsh/zshrc
