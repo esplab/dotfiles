@@ -1,12 +1,3 @@
-### some usefull functionms
-function lso () {  
-  ls -l --color --group-directories-first "$@" | awk '{k=0;for(i=0;i<=8;i++)k+=((substr($1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf(" %0o ",k);print}'; 
-}
-
-function mp3conv320 () {
-   INFILE=$1
-   ffmpeg -i "$INFILE" -vn -ab 320k -ar 44100 -loglevel 48 "${INFILE%.*}.mp3"
-}
 
 ### end of usefull functions
 
@@ -73,7 +64,8 @@ kitty + complete setup zsh | source /dev/stdin
 zstyle ':completion:*' menu select
 
 sources=(
-		  "$HOME/.zalias" 
+          "$HOME/.zfunctions"
+		  "$HOME/.zalias"
 		  "/usr/share/cdhist/cdhist.rc" 
 		  "/usr/share/fzf/completion.zsh" 
 		  "/usr/share/fzf/fzf-extras.zsh" 
