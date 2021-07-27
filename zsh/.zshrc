@@ -6,6 +6,7 @@ export HISTFILE=~/.zsh_history
 export PAGER=nvimpager
 export MANPAGER=nvimpager
 export EDITOR=nvim
+export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
 export FZF_ALT_C_COMMAND="cat $HOME/.cd_history"
 export FZF_DEFAULT_OPTS='--prompt=❯❯\  --marker=✓\  --pointer=→ --color=16'
 
@@ -49,6 +50,15 @@ zinit light urbainvaes/fzf-marks
 ### end of extra plugins
 
 ### key definitions
+
+bindkey '\e[1~' beginning-of-line
+bindkey '\e[H' beginning-of-line
+bindkey '\e[7~' beginning-of-line
+bindkey '\e[4~' end-of-line
+bindkey '\e[F' end-of-line
+bindkey '\e[8~' end-of-line
+bindkey '\e[3~' delete-char
+
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 bindkey -s '^[o' 'ranger^M'
@@ -64,7 +74,7 @@ kitty + complete setup zsh | source /dev/stdin
 zstyle ':completion:*' menu select
 
 sources=(
-          "$HOME/.zfunctions"
+        "$HOME/.zfunctions"
 		  "$HOME/.zalias"
 		  "/usr/share/cdhist/cdhist.rc" 
 		  "/usr/share/fzf/completion.zsh" 
