@@ -5,3 +5,4 @@ nvim/.local/share/nvim/shada/main.shada
 ranger/.config/ranger/plugins/__pycache__/
 ranger/.config/ranger/__pycache__/
 micro/.config/micro/buffers/
+micro/.config/micro/backups/
