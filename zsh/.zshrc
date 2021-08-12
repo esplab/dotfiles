@@ -92,5 +92,9 @@ done
 # To make starship work edit /etc/zsh/zshrc and comment PS1 lines
 eval "$(starship init zsh)"
 
-neofetch
-fortune -a
+if [ "$TERM_PROGRAM" != "vscode" ]; then
+  neofetch
+  fortune -a   # other stuff
+fi
+
+
