@@ -90,6 +90,8 @@ for s in ${sources[@]}; do
 done
 
 # To make starship work edit /etc/zsh/zshrc and comment PS1 lines
+# no need to edit /etc/zsh/zshrc the prompt off fixes the problem
+prompt off
 eval "$(starship init zsh)"
 
 if [ "$TERM_PROGRAM" != "vscode" ]; then
