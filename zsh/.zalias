@@ -23,3 +23,5 @@ alias replasma='kbuildsycoca5 && kquitapp5 plasmashell && kstart5 plasmashell > 
 alias icat='kitty +kitten icat'
 alias fzp='fzpac'
 alias sunv='sudoedit'
+alias mix='npm run development'
+alias mixp='npm run production'
