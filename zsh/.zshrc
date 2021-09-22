@@ -95,7 +95,7 @@ prompt off
 eval "$(starship init zsh)"
 
 if [ "$TERM_PROGRAM" != "vscode" ]; then
-  neofetch
+#  neofetch
   fortune -a   # other stuff
 fi
 
