@@ -1,0 +1,16 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=KonqPopupMenu/Plugin
+X-KDE-Priority=TopLevel
+X-KDE-Submenu=File Tools
+MimeType=video/avi;video/mpeg;video/mp3;video/ogg;video/quicktime;video/msvideo;video/webm;video/x-matroska;video/x-mpeg;video/x-ms-wmv;video/x-msvideo;video/x-flv;application/ogg;
+Actions=findsub;
+Encoding=UTF-8
+
+[Desktop Action findsub]
+Name=Find Subtitles
+GenericName=Automatic subtitles downloader
+Comment=Download synchronized subtitles from opensubtitles.org
+OnlyShowIn=KDE;Razor;TDE;
+Icon=edit-find-symbolic.svg
+Exec=/home/esp/bin/OpenSubtitlesDownload.py --gui=gnome %F

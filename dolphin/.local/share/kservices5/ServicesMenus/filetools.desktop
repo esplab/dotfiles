@@ -1,0 +1,33 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=KonqPopupMenu/Plugin
+X-KDE-Priority=TopLevel
+X-KDE-Submenu=File Tools
+MimeType=all/allfiles;
+Actions=sameName;mvNewFldr;ex;extractcc;extract;fixsubs;
+Encoding=UTF-8
+
+[Desktop Action sameName]
+Name=Rename
+Exec=/home/esp/bin/samename samename %U
+
+[Desktop Action mvNewFldr]
+Name=Move to Folder
+Exec=/home/esp/bin/samename mvnewfldr %U
+MimeType=inode/directory;
+
+[Desktop Action ex]
+Name=Extract Subtitles
+Exec=/home/esp/bin/ex.php %U
+
+[Desktop Action extractcc]
+Name=Extract Subtitles (cc)
+Exec=/home/esp/bin/ccex %U
+
+[Desktop Action extract]
+Name=Extract Archive
+Exec=/usr/bin/ark -o . -b %U
+
+[Desktop Action fixsubs]
+Name=Fix Filename 
+Exec=/home/esp/bin/decname.php %U

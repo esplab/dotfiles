@@ -1,0 +1,32 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=KonqPopupMenu/Plugin
+X-KDE-Priority=TopLevel
+X-KDE-Submenu=File Tools
+MimeType=inode/directory;
+Actions=xtp;fixsubs;sameName;mvNewFldr;ion10subs;
+Encoding=UTF-8
+
+[Desktop Action xtp]
+Name=Extract Video Files
+Exec=/home/esp/bin/xtp %U
+
+[Desktop Action fixsubs]
+Name=Fix Filename 
+Exec=/home/esp/bin/decname.php %U
+MimeType=inode/directory;
+
+[Desktop Action sameName]
+Name=Rename
+Exec=/home/esp/bin/samename samename %U
+
+[Desktop Action mvNewFldr]
+Name=Move to Folder
+Exec=/home/esp/bin/samename mvnewfldr %U
+MimeType=inode/directory;
+
+[Desktop Action ion10subs]
+Name=Extract ion10 Subtitles
+Exec=/home/esp/bin/ion10subs %U
+MimeType=inode/directory;
+

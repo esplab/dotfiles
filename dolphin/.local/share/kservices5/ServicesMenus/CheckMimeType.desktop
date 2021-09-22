@@ -1,0 +1,14 @@
+#version 1.0
+#contact: piotr4@gmail.com
+#
+[Desktop Entry]
+Type=Service
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=application/octet-stream;
+Actions=FileMimeType
+InitialPreference=7
+
+[Desktop Action FileMimeType]
+Name=Check MimeType
+Icon=preferences-desktop-filetype-association
+Exec=bash -c 'type=$(file --mime-type -b "%u"); kdialog --title "Checking Mimetype" --msgbox "MimeType: $type";';

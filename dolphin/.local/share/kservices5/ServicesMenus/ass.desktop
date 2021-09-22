@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=KonqPopupMenu/Plugin
+X-KDE-Priority=TopLevel
+X-KDE-Submenu=File Tools
+MimeType=text/plain;
+Actions=assa;
+Encoding=UTF-8
+
+[Desktop Action assa]
+Name=Convert to SRT
+Exec=/home/esp/bin/assa2srt %U
