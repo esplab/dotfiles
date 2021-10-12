@@ -9,6 +9,12 @@ export EDITOR=nvim
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
 export FZF_ALT_C_COMMAND="cat $HOME/.cd_history"
 export FZF_DEFAULT_OPTS='--prompt=❯❯\  --marker=✓\  --pointer=→ --color=16'
+#export FZF_DEFAULT_COMMAND="fd"
+# CTRL-T's command
+#export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# ALT-C's command
+#export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
+
 
 git config --global color.pager no
 git config --global core.pager nvimpager
