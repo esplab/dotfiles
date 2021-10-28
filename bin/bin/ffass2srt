@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+for var in "$@"
+do
+   filename=$(basename -- "$var")
+   extension="${filename##*.}"
+   filename="${filename%.*}"
+
+   ffmpeg -i "$filename.$extension" -c:s srt "$filename.srt"
+
+   /home/esp/bin/fixsrt "$filename.srt"
+   rm "$filename.$extension"
+   # rm "$filename.srt.old"
+done
