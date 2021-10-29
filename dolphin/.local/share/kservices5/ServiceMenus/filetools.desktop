@@ -4,7 +4,7 @@ X-KDE-ServiceTypes=KonqPopupMenu/Plugin
 X-KDE-Priority=TopLevel
 X-KDE-Submenu=File Tools
 MimeType=all/allfiles;
-Actions=sameName;mvNewFldr;ex;extractcc;extract;fixsubs;
+Actions=sameName;mvNewFldr;ex;extractcc;extract;fixsubs;fixfn;
 Encoding=UTF-8
 
 [Desktop Action sameName]
@@ -31,3 +31,7 @@ Exec=/usr/bin/ark -o . -b %U
 [Desktop Action fixsubs]
 Name=Fix Filename 
 Exec=/home/esp/bin/decname.php %U
+
+[Desktop Action fixfn]
+Name=Fix Filename (add title)
+Exec=/home/esp/bin/fixfn %U

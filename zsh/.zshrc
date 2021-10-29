@@ -53,6 +53,7 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 zinit light urbainvaes/fzf-marks
 zinit light wfxr/forgit
+zinit light soimort/translate-shell
 ### end of extra plugins
 
 ### key definitions
