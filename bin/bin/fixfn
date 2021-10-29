@@ -1,0 +1,83 @@
+#!/usr/bin/env bash
+
+
+if [ ! -f "$1" ]; then
+ exit
+fi
+
+info=$(guessit -j "$1")
+
+series=$(echo "$info" | jq '.title' | tr -d '"')
+
+series="${series//SVU/Special Victims Unit}"
+
+# "${final//[\\\/\:\*\?\"<>|]/-}"
+
+if [ "$series" = "null" ]
+then
+ series=$(echo "$info" | jq '.absolute_episode' | tr -d '"')
+else
+ echo "$series"
+fi
+
+if [ "$series" = "null" ]
+then
+  exit
+fi
+
+# echo "$series"
+
+year=$(echo "$info" | jq '.year')
+
+if [ "$year" = "null" ]
+then
+  year=""
+else
+ year="($year) "
+fi
+
+# echo "$year"
+
+season=$(echo "$info" | jq '.season')
+episode=$(echo "$info" | jq '.episode')
+ext=$(echo "$info" | jq '.container'| tr -d '"')
+
+  # echo "$season"
+  # echo "$episode"
+
+tvmaze=$(curl -G --data-urlencode "q=$series" "https://api.tvmaze.com/search/shows")
+
+  # echo "$tvmaze"|jq
+  # exit
+
+tvmazeid=$(echo "$tvmaze" | jq '.[0] .show.id')
+tvmazename=$(echo "$tvmaze" | jq '.[0] .show.name'| tr -d '"')
+
+  # echo "$tvmaze" | jq
+
+  echo "$tvmazeid"
+  # echo "$tvmazename"
+  # 
+  # exit
+epname=$(curl "https://api.tvmaze.com/shows/${tvmazeid}/episodes" \
+| jq ".[] |select(.number == ${episode} and .season == ${season}) .name" | tr -d '"')
+
+  # echo "$epname"
+
+final=$(printf "%s %s%dx%0*d - %s.%s\n" "$tvmazename" "$year" "$season" 2 "$episode" "$epname" "$ext")
+
+ # echo "$final"
+
+new="${final//[\\\/\:\*\?\"<>|]/ }"
+new="${new//  / /}"
+
+rename=$(kdialog --inputbox "Rename $1 to:\n$final\nFiltered to:" "$new" --geometry=500)
+
+echo "$rename"
+
+if [ -z "$rename" ]
+then
+ exit
+else
+ mv "$1" "$rename"
+fi
