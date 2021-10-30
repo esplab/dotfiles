@@ -69,7 +69,7 @@ final=$(printf "%s %s%dx%0*d - %s.%s\n" "$tvmazename" "$year" "$season" 2 "$epis
  # echo "$final"
 
 new="${final//[\\\/\:\*\?\"<>|]/ }"
-new="${new//  / /}"
+new="${new//  / }"
 
 rename=$(kdialog --inputbox "Rename $1 to:\n$final\nFiltered to:" "$new" --geometry=500)
 
