@@ -46,7 +46,7 @@ zinit light-mode for \
 ### End of Zinit's installer chunk
 
 ### extra plugins
-zinit light zdharma/fast-syntax-highlighting
+#zinit light zdharma/fast-syntax-highlighting
 zinit light zsh-users/zsh-history-substring-search
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
@@ -81,7 +81,7 @@ kitty + complete setup zsh | source /dev/stdin
 zstyle ':completion:*' menu select
 
 sources=(
-        "$HOME/.zfunctions"
+          "$HOME/.zfunctions"
 		  "$HOME/.zalias"
 		  "/usr/share/cdhist/cdhist.rc" 
 		  "/usr/share/fzf/completion.zsh" 

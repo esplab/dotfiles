@@ -1,0 +1,4 @@
+#!/usr/share/env bash
+
+sudo setfacl -Rdm u:http:rwx,u:esp:rwx storage
+sudo setfacl -Rm u:http:rwx,u:esp:rwx storage
