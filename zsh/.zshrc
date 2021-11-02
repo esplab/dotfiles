@@ -1,7 +1,12 @@
 
 ### end of usefull functions
 
-setopt histignorespace           # skip cmds w/ leading space from history
+#setopt histignorespace           # skip cmds w/ leading space from history
+
+setopt extendedhistory histexpiredupsfirst histfindnodups histignoredups histignorespace histsavenodups histverify sharehistory
+export HISTSIZE=1000000000
+export SAVEHIST=1000000000
+
 export HISTFILE=~/.zsh_history
 export PAGER=nvimpager
 export MANPAGER=nvimpager
