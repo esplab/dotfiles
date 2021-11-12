@@ -104,6 +104,7 @@ done
 # To make starship work edit /etc/zsh/zshrc and comment PS1 lines
 # no need to edit /etc/zsh/zshrc the prompt off fixes the problem
 prompt off
+
 eval "$(starship init zsh)"
 
 if [ "$TERM_PROGRAM" != "vscode" ]; then
@@ -111,4 +112,12 @@ if [ "$TERM_PROGRAM" != "vscode" ]; then
   fortune -a   # other stuff
 fi
 
+
+
+# kdesrc-build #################################################################
+
+## Add kdesrc-build to PATH
+export PATH="$HOME/kde/src/kdesrc-build:$PATH"
+
+################################################################################
 

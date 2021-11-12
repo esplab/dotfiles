@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+
+status="$1"
+
+if [[ "$status" == "on" || "$status" == "off" ]]
+then
+   setterm -cursor "$status";
+else
+   setterm -cursor "on";
+fi

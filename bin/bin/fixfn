@@ -80,4 +80,6 @@ then
  exit
 else
  mv "$1" "$rename"
+ #kioclient5 mv "file:$1" "file:$rename"
+ 
 fi
