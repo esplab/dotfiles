@@ -8,4 +8,5 @@ to install program's config files
 stow */
 to install config files for all programs under stow management
 
+That's it.
 
