@@ -25,6 +25,8 @@ then
    prompt off
 fi
 
+setterm -cursor on
+
 # Completion for kitty
 kitty + complete setup zsh | source /dev/stdin
 
