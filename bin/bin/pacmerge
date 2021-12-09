@@ -5,7 +5,7 @@ echo "Pacmerge 1.0"
 echo "running updatedb..."
 sudo updatedb
 
-x=$(locate --existing --regex "\.pac(new|save)$" | fzf)
+x=$(plocate --existing --regex "\.pac(new|save)$" | fzf)
 y=${x%.*}
 
 if [ -z "$x" ]; then
