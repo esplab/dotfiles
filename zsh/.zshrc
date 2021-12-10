@@ -35,10 +35,6 @@ stty -ixon -ixoff
 
 eval "$(starship init zsh)"
 
-autoload -Uz compinit promptinit
-compinit
-promptinit
-
 sources=(
         "$HOME/.zfunctions"
 		  "$HOME/.zalias"
@@ -56,6 +52,11 @@ for s in ${sources[@]}; do
    source "$s"
  fi
 done
+
+autoload -Uz _zinit compinit promptinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+compinit
+promptinit
 
 if [ "$TERM_PROGRAM" != "vscode" ]; then
 #  neofetch

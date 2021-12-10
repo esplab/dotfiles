@@ -30,6 +30,3 @@ zinit light wfxr/forgit
 zinit light soimort/translate-shell
 ### end of extra plugins
 
-autoload -Uz _zinit 
-(( ${+_comps} )) && _comps[zinit]=_zinit
-

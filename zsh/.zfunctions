@@ -31,3 +31,7 @@ function mp3conv320 () {
    INFILE=$1
    ffmpeg -i "$INFILE" -vn -ab 320k -ar 44100 -loglevel 48 "${INFILE%.*}.mp3"
 }
+
+function idiff() {
+  kitty +kitten diff "$@"
+}
