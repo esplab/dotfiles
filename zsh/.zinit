@@ -15,18 +15,19 @@ source "${ZINIT_HOME}/zinit.zsh"
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
 zinit light-mode for \
-    zdharma-continuum/zinit-annex-as-monitor \
-    zdharma-continuum/zinit-annex-bin-gem-node \
-    zdharma-continuum/zinit-annex-patch-dl \
-    zdharma-continuum/zinit-annex-rust\
-    zdharma-continuum/fast-syntax-highlighting
-
-zinit light zsh-users/zsh-history-substring-search
-zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-autosuggestions
-zinit light Aloxaf/fzf-tab
-zinit light urbainvaes/fzf-marks
-zinit light wfxr/forgit
-zinit light soimort/translate-shell
+		  zdharma-continuum/zinit-annex-as-monitor \
+		  zdharma-continuum/zinit-annex-bin-gem-node \
+		  zdharma-continuum/zinit-annex-patch-dl \
+		  zdharma-continuum/zinit-annex-rust \
+		  Aloxaf/fzf-tab \
+		  zdharma-continuum/fast-syntax-highlighting \
+		  zsh-users/zsh-history-substring-search \
+		  zsh-users/zsh-completions \
+		  zsh-users/zsh-autosuggestions \
+		  urbainvaes/fzf-marks \
+		  wfxr/forgit \
+		  soimort/translate-shell
 ### end of extra plugins
 
+autoload -Uz _zinit 
+(( ${+_comps} )) && _comps[zinit]=_zinit
