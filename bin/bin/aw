@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+query="$*"
+query=${query// /_}
+
+exec links "https://wiki.archlinux.org/index.php/Special:Search/${query}"
