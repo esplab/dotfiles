@@ -4,7 +4,7 @@ X-KDE-ServiceTypes=KonqPopupMenu/Plugin
 X-KDE-Priority=TopLevel
 X-KDE-Submenu=File Tools
 MimeType=inode/directory;
-Actions=xtp;fixsubs;sameName;mvNewFldr;ion10subs;
+Actions=xtp;fixsubs;sameName;mvNewFldr;ion10subs;ytd;
 Encoding=UTF-8
 
 [Desktop Action xtp]
@@ -30,3 +30,7 @@ Name=Extract ion10 Subtitles
 Exec=/home/esp/bin/ion10subs %U
 MimeType=inode/directory;
 
+[Desktop Action ytd]
+Name=Youtube Download
+Exec=/home/esp/bin/kyt-download
+MimeType=inode/directory;

@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+url="$(kdialog --inputbox 'YT URL:' )"
+folder="$(kdialog --inputbox 'Folder name to Download files:' )"
+
+if [ -z "$url" ]; then
+    exit 1;
+fi;
+
+if [ -z "$folder" ]; then
+    exit 1;
+fi;
+
+mkdir "$folder"
+cd "$folder"
+
+yt-dlp -f 22 "$url"
+
+echo "#!/usr/bin/env bash" > update
+echo "yt-dlp -f 22 $url" >> update
+chmod +x update
