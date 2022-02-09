@@ -78,7 +78,7 @@ foreach ($argv as $ff) {
 
         $outk= null;
 
-        exec("kdialog --title \"Fix Filename\" --inputbox \"New Filename for:\n" . $ff . "\" \"" . $filename . "\"", $outk, $retk);
+        exec("kdialog --title \"Fix Filename\" --inputbox \"New Filename for:\n" . basename($ff) . "\" \"" . $filename . "\"", $outk, $retk);
 
         if ($retk == 0) {
             exec('mv "' . $ff . '" "' . $outk[0] . '"');

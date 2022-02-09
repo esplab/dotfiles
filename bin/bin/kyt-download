@@ -1,21 +1,20 @@
 #!/usr/bin/env bash
-
 url="$(kdialog --inputbox 'YT URL:' )"
-folder="$(kdialog --inputbox 'Folder name to Download files:' )"
 
 if [ -z "$url" ]; then
     exit 1;
 fi;
 
-if [ -z "$folder" ]; then
-    exit 1;
-fi;
+title=$(yt-dlp --skip-download -j --flat-playlist --no-warnings "$url" |jq ".playlist"|tail -1)
 
-mkdir "$folder"
-cd "$folder"
+kitty yt-dlp -o "$1/%(playlist_title)s/%(title)s [%(id)s].%(ext)s"  -f 22 "$url"
 
-yt-dlp -f 22 "$url"
+temp="${title%\"}"
+temp="${temp#\"}"
 
-echo "#!/usr/bin/env bash" > update
-echo "yt-dlp -f 22 $url" >> update
-chmod +x update
+p="$1/$temp/update"
+
+echo "#!/usr/bin/env bash" > "$p"
+echo "kitty yt-dlp -o \"%(title)s [%(id)s].%(ext)s\"  -f 22 \"$url\"  --playlist-start \"$(ls|wc -l)"\" >> "$p"
+chmod +x "$p"
+

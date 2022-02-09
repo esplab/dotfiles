@@ -49,7 +49,7 @@ if sys.version_info > (3, 0):
 # You can also change opensubtitles.org language, it will be used for error codes and stuff.
 # Can be overridden at run time with '-u' and '-p' arguments.
 osd_username = 'uesp2000'
-osd_password = 'uesp'
+osd_password = 'Uesp2000++'
 osd_language = 'en'
 
 # ==== Language settings =======================================================
@@ -650,7 +650,7 @@ for videoPathDispatch in videoPathList:
 try:
     # ==== Connection to OpenSubtitlesDownload
     try:
-        session = osd_server.LogIn(osd_username, hashlib.md5(osd_password[0:32].encode('utf-8')).hexdigest(), osd_language, 'opensubtitles-download 5.1')
+        session = osd_server.LogIn(osd_username, osd_password[0:32], osd_language, 'opensubtitles-download 5.1')
     except Exception:
         # Retry once after a delay (could just be a momentary overloaded server?)
         time.sleep(3)

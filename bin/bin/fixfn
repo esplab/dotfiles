@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
+for var in "$@"
+do
 
-if [ ! -f "$1" ]; then
+if [ ! -f "$var" ]; then
  exit
 fi
 
-info=$(guessit -j "$1")
+info=$(guessit -j "$var")
 
 series=$(echo "$info" | jq '.title' | tr -d '"')
 
@@ -70,16 +72,17 @@ final=$(printf "%s %s%dx%0*d - %s.%s\n" "$tvmazename" "$year" "$season" 2 "$epis
 
 new="${final//[\\\/\:\*\?\"<>|]/ }"
 new="${new//  / }"
+old=$(basename -- "$var")
 
-rename=$(kdialog --inputbox "Rename $1 to:\n$final\nFiltered to:" "$new" --geometry=500)
+rename=$(kdialog --title "Fix Filename" --inputbox "Fix Filename and add Title to: \n$old" "$new")
 
 echo "$rename"
 
-if [ -z "$rename" ]
+if [ -n "$rename" ];
 then
- exit
-else
- mv "$1" "$rename"
- #kioclient5 mv "file:$1" "file:$rename"
- 
+ mv "$var" "$rename"
+ #kioclient5 mv "file:$var" "file:$rename"
 fi
+
+
+done

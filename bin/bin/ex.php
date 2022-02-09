@@ -44,7 +44,7 @@ for ($args = 1; $args < $argc; $args++) {
    $sub = [];
    $ret = null;
 
-   $dialog = 'kdialog --title "Subtitle Extractor" --checklist="Select Subtitle to Extract from : \n' . $file . '" ';
+   $dialog = 'kdialog --title "Subtitle Extractor" --checklist="Select Subtitle to Extract from : \n' . basename($file) . '" ';
 
    exec($dialog . $params, $sub, $ret);
 
@@ -100,12 +100,21 @@ for ($args = 1; $args < $argc; $args++) {
                // echo "\n" . $extract_command . "\n";
                exec($extract_command);
 
-               $msg = addslashes("Done extracting file: $output");
+			   $msgd = "";	
+               if($format==='.ass'){
+               	$convert_command = "~/bin/ffass2srt $output";
+               	exec($convert_command);
+               	$msgd= addslashes("\nDone converting to srt");				
+               }
 
+			   $msg = addslashes("Done extracting subtitles from:\n ".basename($file).$msgd);		
+			   
                $command = "kdialog --title \"Subtitle Extractor\" --passivepopup \"" . $msg . "\" 10";
 
                exec($command);
 
+				
+					
                //  if($format=='.ass'){
                //     $converted_output = ' "' . $filename . $language . '.srt' . '"';
                //     $convert_command = "ffmpeg -i $output $converted_output";

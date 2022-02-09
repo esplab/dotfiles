@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+#sudo setfacl -Rdm u:http:rwx,u:esp:rwx storage
+#sudo setfacl -Rm u:http:rwx,u:esp:rwx storage
+if [ -f "artisan" ]; then
+  sudo chgrp -R http storage bootstrap/cache database
+  sudo chmod -R ug+rwx storage bootstrap/cache database
+  ln -s public httpdocs
+fi
