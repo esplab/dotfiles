@@ -1,9 +1,20 @@
 #!/usr/bin/env bash
 
-#sudo setfacl -Rdm u:http:rwx,u:esp:rwx storage
-#sudo setfacl -Rm u:http:rwx,u:esp:rwx storage
+HTTPDUSER=$(ps axo user,comm | grep -E '[a]pache|[h]ttpd|[_]www|[w]ww-data|[n]ginx' | grep -v root | head -1 | cut -d\  -f1)
+
+
+
+# sudo setfacl -Rdm u:http:rwx,u:esp:rwx storage
+# sudo setfacl -Rm u:http:rwx,u:esp:rwx storage
+
 if [ -f "artisan" ]; then
-  sudo chgrp -R http storage bootstrap/cache database
-  sudo chmod -R ug+rwx storage bootstrap/cache database
-  ln -s public httpdocs
+  # sudo chgrp -R http storage bootstrap/cache database
+  # sudo chmod -R ug+rwx storage bootstrap/cache database
+  echo "Setting storage, database & bootstrap/cache Permissions..."
+  sudo setfacl -dR -m u:"$HTTPDUSER":rwX -m u:"$(whoami)":rwX storage database bootstrap/cache
+  sudo setfacl -R -m u:"$HTTPDUSER":rwX -m u:"$(whoami)":rwX storage database bootstrap/cache
+ if ! [ -L "httpdocs" ]; then
+ 	 echo "Symlinking public to httpdocs..."
+	 ln -s public httpdocs
+ fi
 fi

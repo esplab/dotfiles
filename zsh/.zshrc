@@ -46,3 +46,26 @@ if [ "$TERM_PROGRAM" != "vscode" ]; then
 #  neofetch
   fortune -a   # other stuff
 fi
+
+
+lfcd () {
+    tmp="$(m"git clone"ktemp)"
+    lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        rm -f "$tmp"
+        if [ -d "$dir" ]; then
+            if [ "$dir" != "$(pwd)" ]; then
+                cd "$dir"
+            fi
+        fi
+    fi
+}
+
+# unset zle_bracketed_paste
+zle_highlight=('paste:none')
+
+# pnpm
+export PNPM_HOME="/home/esp/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end

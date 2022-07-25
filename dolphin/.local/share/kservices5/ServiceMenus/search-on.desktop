@@ -1,0 +1,66 @@
+#v0.2, 11.10.2010, by michalje
+
+[Desktop Entry]
+Type=Service
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=all/allfiles;inode/directory
+Actions=google-all;google-lang;google-images;_SEPARATOR_;wikipedia;_SEPARATOR_;filmweb;imdb;youtube;_SEPARATOR_;napisyinfo;opensubtitles
+Icon=internet-web-browser
+X-KDE-Priority=TopLevel
+X-KDE-Submenu=Search on
+X-KDE-Submenu[pl]=Szukaj na
+
+[Desktop Action google-all]
+Icon=search-on/google
+Name=Google
+Exec=kde-open 'http://www.google.com/search?q='%n
+Exec[pl]=kde-open 'http://www.google.pl/search?q='%n
+
+[Desktop Action google-lang]
+Icon=search-on/google
+Name[pl]=Google PL
+Exec[pl]=kde-open 'http://www.google.pl/search?q='%n'&lr=lang_pl'
+
+[Desktop Action google-images]
+Icon=search-on/google
+Name=Google (images)
+Exec=kde-open 'http://www.google.com/images?q='%n
+Name[pl]=Google (grafika)
+Exec[pl]=kde-open 'http://www.google.pl/images?q='%n
+
+#SEPARATOR
+
+[Desktop Action wikipedia]
+Icon=search-on/wikipedia
+Name=Wikipedia
+Exec=kde-open 'http://en.wikipedia.org/wiki/'%n
+Exec[pl]=kde-open 'http://pl.wikipedia.org/wiki/'%n
+
+#SEPARATOR
+
+[Desktop Action filmweb]
+Icon=search-on/filmweb
+Name[pl]=Filmweb
+Exec[pl]=kde-open 'http://www.filmweb.pl/search?q='%n
+
+[Desktop Action imdb]
+Icon=search-on/imdb
+Name=IMDb
+Exec=kde-open 'http://www.imdb.com/find?s=all&q='%n
+
+[Desktop Action youtube]
+Icon=search-on/youtube
+Name=YouTube
+Exec=kde-open 'http://www.youtube.com/results?search_query='%n
+
+#SEPARATOR
+
+[Desktop Action napisyinfo]
+Icon=search-on/napisyinfo
+Name[pl]=Napisy.info
+Exec[pl]=kde-open 'http://napisy.info/SzukajTytulow.php?t='%n'+%2Bpl'
+
+[Desktop Action opensubtitles]
+Icon=search-on/opensubtitles
+Name=OpenSubtitles
+Exec=kde-open 'http://www.opensubtitles.org/search2/moviename-'%n
