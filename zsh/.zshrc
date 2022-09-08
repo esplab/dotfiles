@@ -43,8 +43,8 @@ for s in ${sources[@]}; do
 done
 
 if [ "$TERM_PROGRAM" != "vscode" ]; then
-#  neofetch
-  fortune -a   # other stuff
+  neofetch
+  fortune #-a   # other stuff
 fi
 
 
