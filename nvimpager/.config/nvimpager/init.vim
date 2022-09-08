@@ -1,5 +1,5 @@
-call plug#begin('~/.config/vim/plugged')
-    Plug 'arcticicestudio/nord-vim'
+call plug#begin('~/.config/nvim/plugged')
+    Plug 'arcticicestudio/nord.nvim'
 call plug#end()
 
 colorscheme nord

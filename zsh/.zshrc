@@ -9,8 +9,13 @@ compinit
 # Enable cursor 
 setterm -cursor on
 
+termux=`echo "$PREFIX" | grep -o "com.termux"`
+
 # Completion for kitty
-kitty + complete setup zsh | source /dev/stdin
+if [ ! $termux ]
+then
+  kitty + complete setup zsh | source /dev/stdin
+fi
 
 # Disable flow control (ctrl+s, ctrl+q) to enable saving with ctrl+s in Vim
 stty -ixon -ixoff
@@ -41,8 +46,6 @@ for s in ${sources[@]}; do
    source "$s"
  fi
 done
-
-termux=`echo "$PREFIX" | grep -o "com.termux"`
 
 if [ "$TERM_PROGRAM" != "vscode" ]; then
   if [ $termux  ]; then
