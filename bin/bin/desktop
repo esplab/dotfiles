@@ -1,0 +1,16 @@
+#!/bin/bash
+case "$1" in
+	start)
+		echo -n "Starting Termux Desktop..."
+		vncserver -listen tcp
+		vncserver -list
+		termux-open vnc://127.0.0.1:5901
+		;;
+	stop)
+		echo -n "Stoping Termux Desktop..."
+		vncserver -kill localhost:1
+		;;
+	*)
+		echo -n "Start/Stop Termux Desktop"
+		echo -n "usage: desktop start|stop"
+esac
