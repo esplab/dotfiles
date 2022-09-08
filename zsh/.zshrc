@@ -42,8 +42,10 @@ for s in ${sources[@]}; do
  fi
 done
 
+termux=`echo "$PREFIX" | grep -o "com.termux"`
+
 if [ "$TERM_PROGRAM" != "vscode" ]; then
-  if [ echo $PREFIX | grep -o "com.termux" ]; then
+  if [ $termux  ]; then
     neofetch
     fortune #-a   # other stuff
   else
