@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+# Turn on/off or Switch Secondary monitor
+
+
+monitors=$(xrandr --listmonitors |grep 'Monitors'|cut -d " " -f2)
+
+
+# echo "$monitors";
+
+if [[ $1 == "right:on" ]]
+  then 
+  xrandr --output HDMI-0 --auto --right-of DVI-D-0
+  exit
+fi
+
+if [[ $1 == "right:off" ]]
+  then 
+  xrandr --output HDMI-0 --off
+  exit
+fi
+
+if [[ $1 == "left:on" ]]
+  then 
+  xrandr --output DVI-D-0 --auto --left-of HDMI-0
+  exit
+fi
+
+if [[ $1 == "left:off" ]]
+  then 
+  xrandr --output DVI-D-0 --off 
+  exit
+fi
+
+
+
+if [[ "$monitors" == "2" &&  "$1" == "right" ]]
+  then 
+    xrandr --output HDMI-0 --off
+  else 
+    xrandr --output HDMI-0 --auto --right-of DVI-D-0
+fi
+
+if [ "$monitors" == "2" ] && [ "$1" == "left" ]
+  then 
+  	xrandr --output DVI-D-0 --off 
+  else
+    xrandr --output DVI-D-0 --auto --left-of HDMI-0
+fi
