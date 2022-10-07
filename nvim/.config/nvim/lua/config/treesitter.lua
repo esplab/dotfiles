@@ -4,6 +4,7 @@ require("nvim-treesitter.configs").setup({
     -- To install additional languages, do: `:TSInstall <mylang>`.
     ensure_installed = "all",
     sync_installed = true,
+    ignore_install = ((os.getenv("PREFIX") ~= nil and os.getenv("PREFIX"):find("termux", 1, true)) and {} or {"phpdoc"}),
     highlight = {
         enable = true, -- This is a MUST
         additional_vim_regex_highlighting = false,
@@ -33,3 +34,5 @@ vim.cmd([[
   set foldmethod=expr
   set foldexpr=nvim_treesitter#foldexpr()
 ]])
+
+

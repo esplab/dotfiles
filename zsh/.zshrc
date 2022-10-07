@@ -49,7 +49,7 @@ done
 
 if [ "$TERM_PROGRAM" != "vscode" ]; then
   if [ $termux  ]; then
-    neofetch
+   # neofetch
     fortune #-a   # other stuff
   else
 	fortune -a
