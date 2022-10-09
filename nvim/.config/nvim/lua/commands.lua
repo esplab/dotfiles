@@ -75,3 +75,6 @@ vim.cmd("command! Format execute 'lua vim.lsp.buf.formatting()'")
 
 -- :Actions command to execute LSP's code_action() function
 vim.cmd("command! Actions execute 'lua vim.lsp.buf.code_action()'")
+
+-- Automatically open alpha when the last buffer is deleted and only one window left
+vim.cmd([[ au BufDelete * if empty(filter(tabpagebuflist(), '!buflisted(v:val)')) && winnr('$') == 1 | exec 'Alpha' | endif ]])
