@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+cp /home/esp/.local/share/icons/onboard.svg /home/esp/.local/share/icons/Papirus/16x16/apps/
+cp /home/esp/.local/share/icons/onboard.svg /home/esp/.local/share/icons/Papirus/22x22/apps/
+cp /home/esp/.local/share/icons/onboard.svg /home/esp/.local/share/icons/Papirus/24x24/apps/
+cp /home/esp/.local/share/icons/onboard.svg /home/esp/.local/share/icons/Papirus/32x32/apps/
+cp /home/esp/.local/share/icons/onboard.svg /home/esp/.local/share/icons/Papirus/48x48/apps/
+cp /home/esp/.local/share/icons/onboard.svg /home/esp/.local/share/icons/Papirus/64x64/apps/
+
+cp /home/esp/.local/share/icons/virt-manager.svg /home/esp/.local/share/icons/Papirus/16x16/apps/
+cp /home/esp/.local/share/icons/virt-manager.svg /home/esp/.local/share/icons/Papirus/22x22/apps/
+cp /home/esp/.local/share/icons/virt-manager.svg /home/esp/.local/share/icons/Papirus/24x24/apps/
+cp /home/esp/.local/share/icons/virt-manager.svg /home/esp/.local/share/icons/Papirus/32x32/apps/
+cp /home/esp/.local/share/icons/virt-manager.svg /home/esp/.local/share/icons/Papirus/48x48/apps/
+cp /home/esp/.local/share/icons/virt-manager.svg /home/esp/.local/share/icons/Papirus/64x64/apps/

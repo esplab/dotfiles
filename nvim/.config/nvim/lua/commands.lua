@@ -71,7 +71,7 @@ vim.cmd([[command! Tgrep execute "lua require(\"telescope.builtin\").live_grep()
 vim.cmd([[command! Ttags execute "lua require(\"telescope.builtin\").help_tags()"]])
 
 -- :Format command to format code using LSP
-vim.cmd("command! Format execute 'lua vim.lsp.buf.formatting()'")
+vim.cmd("command! Format execute 'lua vim.lsp.buf.format()'")
 
 -- :Actions command to execute LSP's code_action() function
 vim.cmd("command! Actions execute 'lua vim.lsp.buf.code_action()'")

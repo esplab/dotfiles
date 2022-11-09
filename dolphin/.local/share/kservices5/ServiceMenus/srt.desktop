@@ -4,9 +4,13 @@ X-KDE-ServiceTypes=KonqPopupMenu/Plugin
 X-KDE-Priority=TopLevel
 X-KDE-Submenu=File Tools
 MimeType=application/x-subrip;
-Actions=fixsrt;
+Actions=fixsrt;submod;
 Encoding=UTF-8
 
 [Desktop Action fixsrt]
 Name=Fix Subtitle
 Exec=/home/esp/bin/fixsrt %U
+
+[Desktop Action submod]
+Name=Modify Subtitle Times
+Exec=/home/esp/bin/subsss %U

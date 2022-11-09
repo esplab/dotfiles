@@ -1,5 +1,6 @@
 -- lua/options.lua
 
+vim.opt.fillchars = 'eob: '
 vim.opt.number = true -- Show numbers on the left
 vim.opt.relativenumber = true -- Its better if you use motions like 10j or 5yk
 vim.opt.hlsearch = true -- Highlight search results
