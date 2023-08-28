@@ -14,7 +14,7 @@ termux=`echo "$PREFIX" | grep -o "com.termux"`
 #  Completion for kitty
 if [ ! $termux ]
 then
-  kitty + complete setup zsh | source /dev/stdin
+  [ ! -f /etc/debian_version ] && kitty + complete setup zsh | source /dev/stdin
 fi
 
 # Disable flow control (ctrl+s, ctrl+q) to enable saving with ctrl+s in Vim
@@ -83,7 +83,8 @@ TMOUT=4800
 
 TRAPALRM() { cmatrix -s -B }
 
-source /home/esp/.config/broot/launcher/bash/br
+[ ! -f /etc/debian_version ] && source /home/esp/.config/broot/launcher/bash/br
+
 unsetopt correct
 eval 
             fuck () {
