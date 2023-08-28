@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+if [ -z "$1" ]; then
+	echo "Usage: $0 <input_image> [<output_prefix>]"
+	exit 1
+fi
+
+input_image="$1"
+output_prefix="$2"
+
+if [ -z "$output_prefix" ]; then
+	output_prefix="${input_image%.*}_left"
+fi
+
+output_left="${output_prefix}_left.${input_image##*.}"
+output_right="${output_prefix}_right.${input_image##*.}"
+
+# Crop the left half and save it as the left output filename
+convert "$input_image" -gravity West -crop 50%x100% +repage "$output_left"
+
+# Crop the right half and save it as the right output filename
+convert "$input_image" -gravity East -crop 50%x100% +repage "$output_right"
+
+echo "Images cropped and saved as $output_left and $output_right"

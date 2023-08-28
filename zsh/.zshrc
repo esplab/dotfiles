@@ -11,7 +11,7 @@ setterm -cursor on
 
 termux=`echo "$PREFIX" | grep -o "com.termux"`
 
-# Completion for kitty
+#  Completion for kitty
 if [ ! $termux ]
 then
   kitty + complete setup zsh | source /dev/stdin
@@ -33,9 +33,9 @@ sources=(
 		  "$HOME/.zfunctions"
 		  "$HOME/.zalias"
 		  "/usr/share/cdhist/cdhist.rc" 
-		  "/usr/share/fzf/completion.zsh" 
-		  "/usr/share/fzf/fzf-extras.zsh" 
-		  "/usr/share/fzf/key-bindings.zsh" 
+		  "$HOME/bin/fzf/completion.zsh" 
+		  "$HOME/bin/fzf/fzf-extras.zsh" 
+		  "$HOME/bin/fzf/key-bindings.zsh" 
 		  "/usr/share/doc/pkgfile/command-not-found.zsh"
 		  "$HOME/.zinit"
 		  "$HOME/.zkeys"
@@ -78,3 +78,32 @@ zle_highlight=('paste:none')
 export PNPM_HOME="/home/esp/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+
+TMOUT=4800
+
+TRAPALRM() { cmatrix -s -B }
+
+source /home/esp/.config/broot/launcher/bash/br
+unsetopt correct
+eval 
+            fuck () {
+                TF_PYTHONIOENCODING=$PYTHONIOENCODING;
+                export TF_SHELL=zsh;
+                export TF_ALIAS=fuck;
+                TF_SHELL_ALIASES=$(alias);
+                export TF_SHELL_ALIASES;
+                TF_HISTORY="$(fc -ln -10)";
+                export TF_HISTORY;
+                export PYTHONIOENCODING=utf-8;
+                TF_CMD=$(
+                    thefuck THEFUCK_ARGUMENT_PLACEHOLDER $@
+                ) && eval $TF_CMD;
+                unset TF_HISTORY;
+                export PYTHONIOENCODING=$TF_PYTHONIOENCODING;
+                test -n "$TF_CMD" && print -s $TF_CMD
+            }
+        
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/home/esp/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

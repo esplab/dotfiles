@@ -17,20 +17,24 @@ for ($args = 1; $args < $argc; $args++) {
    $subs = null;
    $params = '';
    $ex = 'on';
-   $default_lang = 'gre';
+   $default_langs = [ 'gre', 'ell', ];
    $command = "ffprobe -loglevel error -select_streams s -show_entries stream=index,codec_name:stream_tags=language -of csv=p=0 ";
 
    if (file_exists($file)) {
 
       exec($command . '"' . $file . '"', $subs, $ret);
 
+		$found = false;
+
       foreach ($subs as $key => $value) {
+      	
          $val = explode(',', $value);
          $of = 'off ';
 
-         if ($val[2] === $default_lang) {
+         if ( in_array( $val[2], $default_langs) && !$found) {
             $of = 'on ';
             $ex = 'off';
+            $found = true;
          }
 
          $params = $params . $key . ' "' . $val[2] . ' (' . $val[1] . ')" ' . $of;
@@ -78,7 +82,7 @@ for ($args = 1; $args < $argc; $args++) {
 
                $format = '.' . $ex_lang["format"];
 
-               if ($format == '.subrip') {
+               if ($format === '.subrip') {
                   $format = ".srt";
                }
 
@@ -93,11 +97,20 @@ for ($args = 1; $args < $argc; $args++) {
 
                $input = ' -i "' . $file . '"';
 
+
+
                $output = ' "' . $filename . $language . $format . '"';
 
                $extract_command = 'ffmpeg -y' . $loglevel . $input . ' -c copy -map 0:' . $id . $output;
 
-               // echo "\n" . $extract_command . "\n";
+			   if ($format === '.mov_text') {
+			  	$format = ".srt";
+			  	 $output = ' "' . $filename . $language . $format . '"';
+				$extract_command = 'ffmpeg -y' . $loglevel . $input . ' -c text -map 0:' . $id . $output;
+			   }
+               
+
+               echo "\n" . $extract_command . "\n";
                exec($extract_command);
 
 			   $msgd = "";	

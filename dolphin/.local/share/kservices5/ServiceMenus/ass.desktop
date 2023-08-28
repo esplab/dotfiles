@@ -2,7 +2,7 @@
 Type=Service
 X-KDE-ServiceTypes=KonqPopupMenu/Plugin
 X-KDE-Priority=TopLevel
-X-KDE-Submenu=File Tools
+X-KDE-Submenu=Powertools
 MimeType=text/x-ssa;
 Actions=assa;
 Encoding=UTF-8

@@ -27,3 +27,6 @@ alias sunv='sudoedit'
 alias art='php artisan'
 alias locate='plocate'
 alias myip="curl http://ipecho.net/plain; echo"
+alias crow-watch="/home/esp/.go/bin/crow"
+alias :q='exit'
+alias :wq='exit'

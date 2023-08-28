@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+setxkbmap -variant ' ,extended'
+/opt/viber/Viber

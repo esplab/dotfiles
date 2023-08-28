@@ -35,3 +35,9 @@ function mp3conv320 () {
 function idiff() {
   kitty +kitten diff "$@"
 }
+
+function wds () {
+	id=$(kitty @ ls|jq -r '.[].tabs[].windows[] | "\(.id) - \(.title)"'|rofi -dmenu -window-title 'Select kitty window:'|awk '{print $1}')
+	
+	kitty @ focus-window -m id:"$id"
+}

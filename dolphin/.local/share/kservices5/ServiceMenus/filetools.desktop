@@ -2,9 +2,9 @@
 Type=Service
 X-KDE-ServiceTypes=KonqPopupMenu/Plugin
 X-KDE-Priority=TopLevel
-X-KDE-Submenu=File Tools
+X-KDE-Submenu=Powertools
 MimeType=all/allfiles;
-Actions=sameName;mvNewFldr;ex;extractcc;extract;fixsubs;fixfn;
+Actions=sameName;mvNewFldr;ex;extractcc;extract;fixfilename;fixfilenamenot;fixfn;
 Encoding=UTF-8
 
 [Desktop Action sameName]
@@ -28,9 +28,14 @@ Exec=/home/esp/bin/ccex %U
 Name=Extract Archive
 Exec=/usr/bin/ark -o . -b %U
 
-[Desktop Action fixsubs]
+[Desktop Action fixfilename]
 Name=Fix Filename 
 Exec=/home/esp/bin/decname.php %U
+
+
+[Desktop Action fixfilenamenot]
+Name=Fix Filename no Episode
+Exec=/home/esp/bin/decnamenot.php %U
 
 [Desktop Action fixfn]
 Name=Fix Filename (add title)
